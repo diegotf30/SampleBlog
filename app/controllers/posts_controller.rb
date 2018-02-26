@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+	http_basic_authenticate_with name: "Diego", password: "holaSoyDiego", 
+									except: [:index, :show]
+									# Routes where we don't want to auth!
 	def index
 		@posts = Post.all
 	end
